@@ -2,7 +2,9 @@ import React from "react";
 import "./home.css";
 import NavBar from "./Layout/Navbar";
 import earthImg from "../assets/img/Home-Earth.avif";
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <NavBar></NavBar>
@@ -25,7 +27,13 @@ function Home() {
               ></path>
             </svg>
           </div>
-          <a href="#" className="btn">
+
+          <a
+            className="btn"
+            onClick={() => {
+              navigate("form");
+            }}
+          >
             <div className="hover"></div>
             <span>Join Us</span>
           </a>

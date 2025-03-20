@@ -1,96 +1,115 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import "./form.css";
 
 function Form() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    company: "",
-    title: "",
-    details: "",
+    message: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
+    // Submission logic here
   };
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      <div className="max-w-[1600px] mx-auto px-6 py-32">
-        <div className="max-w-[800px]">
-          <h1 className="text-5xl font-bold mb-8">HUMAN SPACEFLIGHT INQUIRY</h1>
-          <p className="text-lg mb-12 opacity-70">
-            For human spaceflight inquiries, please submit the form below and a
-            member of our team will follow up as soon as possible.
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div>
+    <div className="exeet-form-wrapper">
+      <div className="exeet-form-container">
+        <h1>HUMAN SPACEFLIGHT</h1>
+        <p>
+          To join, please submit the form below and a member of our team will
+          follow up as soon as possible
+        </p>
+        <br />
+        <hr />
+        <form onSubmit={handleSubmit} className="exeet-contact-form">
+          <div className="form-section">
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Prenom <span>*</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="FIRST NAME"
-                  className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4"
+                  name="firstname"
+                  placeholder="First Name"
                   required
+                  value={formData.firstName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, firstName: e.target.value })
+                  }
+                  className="exeet-input"
                 />
               </div>
-              <div>
+              <div className="form-group">
+                <label>
+                  Nom <span>*</span>
+                </label>
                 <input
                   type="text"
-                  placeholder="LAST NAME"
-                  className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4"
+                  name="lastname"
+                  placeholder="Last Name"
                   required
+                  value={formData.lastName}
+                  onChange={(e) =>
+                    setFormData({ ...formData, lastName: e.target.value })
+                  }
+                  className="exeet-input"
                 />
               </div>
             </div>
 
-            <div>
-              <input
-                type="email"
-                placeholder="EMAIL"
-                className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4"
-                required
-              />
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  E-Mail <span>*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  className="exeet-input"
+                />
+              </div>
             </div>
 
-            <div>
-              <input
-                type="text"
-                placeholder="COMPANY"
-                className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4"
-                required
-              />
+            <div className="form-row">
+              <div className="form-group">
+                <label>
+                  Message <span>*</span>
+                </label>
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  required
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  className="exeet-textarea"
+                  rows="4"
+                ></textarea>
+              </div>
             </div>
+          </div>
 
-            <div>
-              <input
-                type="text"
-                placeholder="TITLE"
-                className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4"
-                required
-              />
-            </div>
+          <div className="form-footer">
+            <button type="submit" className="exeet-submit-button">
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
 
-            <div>
-              <textarea
-                placeholder="DETAILS"
-                rows={4}
-                className="bg-transparent border-b border-white/20 w-full focus:border-white/40 focus:outline-none placeholder:text-white/40 px-0 py-4 resize-none"
-                required
-              />
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                className="border-2 border-white text-sm duration-200 hover:bg-white hover:text-black px-12 py-3 transition-colors"
-              >
-                SUBMIT
-              </button>
-            </div>
-          </form>
-        </div>
+      <div className="exeet-footer-note">
+        <p>© EXEET 2025.</p>
       </div>
     </div>
   );

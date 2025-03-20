@@ -37,6 +37,7 @@ ul {
   text-transform: uppercase;
   height: 100px;
   padding: 0 30px;
+  background-color: #ffffff00;
 }
 
 /* Logo */
@@ -114,6 +115,7 @@ section {
   font-size: 50px;
   font-weight: 700;
   margin-bottom: 20px;
+  color: white;
   animation: fadeInUp 0.5s ease-in-out 0.2s;
   animation-fill-mode: both; /* Stop from showing at start */
 }

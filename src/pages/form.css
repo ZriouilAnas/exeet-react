@@ -1,0 +1,97 @@
+/* SpaceXForm.css */
+.exeet-form-wrapper {
+  background-color: #000;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: "Familjen Grotesk", sans-serif;
+}
+
+.exeet-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+}
+
+.exeet-contact-form {
+  padding: 20px 0;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.exeet-input,
+.exeet-textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: rgba(128, 128, 128, 0.227);
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+.exeet-input::placeholder,
+.exeet-textarea::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+.exeet-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.exeet-submit-button {
+  width: 100%;
+  padding: 16px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exeet-submit-button:hover {
+  background-color: #eee;
+}
+
+.exeet-footer-note {
+  text-align: center;
+  padding: 40px 0 20px;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.exeet-footer-note p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .exeet-form-container {
+    padding: 0 15px;
+  }
+
+  .exeet-input,
+  .exeet-textarea {
+    font-size: 16px;
+  }
+}
+
+label {
+  font-size: 1.5rem;
+}
+span {
+  color: red;
+}
