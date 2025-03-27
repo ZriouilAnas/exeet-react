@@ -1,97 +1,185 @@
-/* SpaceXForm.css */
-.exeet-form-wrapper {
-  background-color: #000;
-  min-height: 100vh;
-  padding: 40px 20px;
-  font-family: "Familjen Grotesk", sans-serif;
-}
-
-.exeet-form-container {
-  max-width: 600px;
-  margin: 0 auto;
+body {
+  background-color: black;
   color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.exeet-contact-form {
-  padding: 20px 0;
+.container {
+  max-width: 800px;
+  margin: 1vh 2vw;
+  width: 90vw;
 }
 
-.form-row {
+.header {
+  background-color: black;
+  padding: 0;
+  text-align: center;
+  width: 100vw;
+}
+
+.logo a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-content h2 {
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.exeet-input,
-.exeet-textarea {
-  width: 100%;
-  padding: 12px;
-  background-color: rgba(128, 128, 128, 0.227);
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-  border-radius: 0;
-  -webkit-appearance: none;
-}
-
-.exeet-input::placeholder,
-.exeet-textarea::placeholder {
-  color: #888;
-  opacity: 1;
-}
-
-.exeet-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.exeet-submit-button {
-  width: 100%;
-  padding: 16px;
-  background-color: #fff;
-  color: #000;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.exeet-submit-button:hover {
-  background-color: #eee;
-}
-
-.exeet-footer-note {
-  text-align: center;
-  padding: 40px 0 20px;
-  color: #888;
-  font-size: 12px;
-  letter-spacing: 0.5px;
-}
-
-.exeet-footer-note p {
+.form {
+  display: grid;
+  grid-template-columns: 43vw 43vw;
+  gap: 1vh 6vw;
   margin: 0;
+  padding: 0;
 }
 
-@media (max-width: 640px) {
-  .exeet-form-container {
-    padding: 0 15px;
-  }
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 42vw;
+  margin: 0;
+  padding: 0;
+}
 
-  .exeet-input,
-  .exeet-textarea {
-    font-size: 16px;
-  }
+.full-width {
+  grid-column: span 2;
+  width: 91vw;
+  max-width: 100vw;
 }
 
 label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.required {
+  color: red;
   font-size: 1.5rem;
 }
-span {
-  color: red;
+
+input,
+select,
+textarea {
+  background-color: #1a1a1a;
+  border: 1px solid gray;
+  padding: 10px;
+  color: white;
+
+  width: 100%;
+  height: 7vh;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.checkbox-container input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-left: 1vw;
+}
+
+.checkbox-container input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.checkbox-container input:checked::after {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.radio-container input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+  position: relative;
+}
+
+.radio-container input:checked {
+  border-color: #007bff;
+}
+
+.radio-container input:checked::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #007bff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 600px) {
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    width: 42vw;
+    margin: 0;
+    padding: 0;
+  }
+  .full-width {
+    grid-column: span 2;
+    width: 90vw;
+    max-width: 100vw;
+  }
+  .form {
+    display: grid;
+    grid-template-columns: 43vw 43vw;
+    gap: 6vw;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-size: small;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: row;
+
+    cursor: pointer;
+    font-family: sans-serif;
+  }
 }

@@ -6,6 +6,7 @@ import Form from "./pages/form";
 import Home from "./pages/home";
 import Shop from "./pages/Shop/shop";
 import Cart from "./pages/Shop/cart";
+
 // Importation des composants nécessaires
 
 // import Navbar from "./components/Layout/NavBar";
