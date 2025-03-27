@@ -12,14 +12,16 @@ function NavBar() {
       </div>
       <header className="main-header">
         <div className="logo">
-          <a href="index.html" style={{ fontSize: "x-large" }}>
+          <a href="index.html" style={{ fontSize: "6rem" }}>
             EXEET
           </a>
         </div>
         <nav className="desktop-main-menu">
           <ul>
             <li>
-              <NavLink to="/shop">Shop</NavLink>
+              <NavLink style={{ fontSize: "2rem" }} to="/shop">
+                Shop
+              </NavLink>
             </li>
           </ul>
         </nav>

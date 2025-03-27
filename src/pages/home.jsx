@@ -9,36 +9,36 @@ function Home() {
     <>
       <NavBar></NavBar>
       {/* Section A */}
-      <section
-        className="section-a"
-        style={{ backgroundImage: `url(${earthImg})` }}
-      >
-        <div className="section-inner">
-          <h2>Human Commercial Spaceflight</h2>
-        </div>
-        <div className="section-button">
-          <div className="scroll-arrow">
-            <svg width="30px" height="20px">
-              <path
-                stroke="#ffffff"
-                fill="none"
-                strokeWidth="2px"
-                d="M2.000,5.000 L15.000,18.000 L28.000,5.000"
-              ></path>
-            </svg>
+      <section className="section-a">
+        <div className="bgHome">
+          <div className="section-inner">
+            <h2>Human Commercial Spaceflight</h2>
           </div>
+          <div className="section-button">
+            <div className="scroll-arrow">
+              <svg width="30px" height="20px">
+                <path
+                  stroke="#ffffff"
+                  fill="none"
+                  strokeWidth="2px"
+                  d="M2.000,5.000 L15.000,18.000 L28.000,5.000"
+                ></path>
+              </svg>
+            </div>
 
-          <a
-            className="btn"
-            onClick={() => {
-              navigate("form");
-            }}
-          >
-            <div className="hover"></div>
-            <span>Join Us</span>
-          </a>
+            <a
+              className="btn"
+              onClick={() => {
+                navigate("form");
+              }}
+            >
+              <div className="hover"></div>
+              <span>Join Us</span>
+            </a>
+          </div>
         </div>
       </section>
+
       <footer>
         <ul>
           <li>SpaceX &copy; 2022</li>

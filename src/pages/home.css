@@ -99,8 +99,8 @@ section {
 
 .section-inner {
   position: absolute;
-  bottom: 200px;
-  left: 150px;
+  bottom: 20%;
+  left: 10%;
   max-width: 560px;
 }
 
@@ -134,13 +134,13 @@ section {
 .section-a {
   height: 100vh;
 
-  background-image: url("/img/Home-Earth.avif");
+  /* background-image: url("/img/Home-Earth.avif"); */
 }
 
 .section-button {
   position: absolute;
-  bottom: 200px;
-  left: 600px;
+  bottom: 10%;
+  left: 40%;
   max-width: 560px;
 }
 
@@ -498,4 +498,12 @@ footer ul li a:hover {
   .stats div {
     margin-bottom: 20px;
   }
+}
+
+.bgHome {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/img/Home-Earth.avif");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

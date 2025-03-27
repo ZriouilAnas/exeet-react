@@ -104,8 +104,8 @@ input[type="radio"] {
 }
 
 .checkbox-container input:checked::after {
-  content: "✔";
-  display: flex;
+  display: absolute;
+  top: 0;
   justify-content: center;
   align-items: center;
   color: white;
