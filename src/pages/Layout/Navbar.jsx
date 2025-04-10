@@ -19,7 +19,7 @@ function NavBar() {
         <nav className="desktop-main-menu">
           <ul>
             <li>
-              <NavLink style={{ fontSize: "2rem" }} to="/shop">
+              <NavLink style={{ fontSize: "1.8rem" }} to="/shop">
                 Shop
               </NavLink>
             </li>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./shop.css";
 
-function Shop() {
+function ShopDemo() {
   const [products, setProducts] = useState([]); // State to store products
   const [loading, setLoading] = useState(true); // Loading state for API request
 
@@ -92,4 +92,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default ShopDemo;
