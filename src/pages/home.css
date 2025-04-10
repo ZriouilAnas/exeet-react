@@ -29,7 +29,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 3;
   display: flex;
   justify-content: space-between;
@@ -42,8 +42,9 @@ ul {
 
 /* Logo */
 .logo {
-  width: 210px;
+  width: 30vw;
   height: auto;
+  font-size: 4rem;
 }
 
 .logo img {
@@ -441,16 +442,6 @@ footer ul li a:hover {
 /* Media Queries */
 
 @media (max-width: 960px) {
-  /* Hide desktop menu */
-  .desktop-main-menu {
-    display: none;
-  }
-
-  /* Show main mobile items */
-  .mobile-only {
-    display: block;
-  }
-
   .section-inner-center h3 {
     font-size: 75px;
   }

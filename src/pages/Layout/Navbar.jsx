@@ -12,9 +12,7 @@ function NavBar() {
       </div>
       <header className="main-header">
         <div className="logo">
-          <a href="index.html" style={{ fontSize: "6rem" }}>
-            EXEET
-          </a>
+          <h1>EXEET</h1>
         </div>
         <nav className="desktop-main-menu">
           <ul>
@@ -26,13 +24,6 @@ function NavBar() {
           </ul>
         </nav>
       </header>
-
-      {/* Hamburger Menu */}
-      <button id="menu-btn" className="hamburger" type="button">
-        <span className="hamburger-top"></span>
-        <span className="hamburger-middle"></span>
-        <span className="hamburger-bottom"></span>
-      </button>
     </div>
   );
 }
