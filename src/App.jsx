@@ -8,6 +8,8 @@ import Shop from "./pages/Shop/shop";
 import Cart from "./pages/Shop/cart";
 import ShopDemo from "./pages/Shop/shopdemo";
 import { ShopProvider } from "./pages/Shop/shopContext";
+import LoginPage from "./pages/backoffice/login";
+import ProductList from "./pages/backoffice/products";
 
 // Importation des composants nécessaires
 
@@ -19,8 +21,12 @@ const App = () => {
       <Router>
         <div className="App">
           <Routes>
-            {/* Routes pour la form */}
+            {/* Routes pour la login */}
+            <Route path="/login" element={<LoginPage />} />
+            {/* Routes pour backoffice */}
+            <Route path="/products" element={<ProductList />} />
 
+            {/* Routes pour la form */}
             <Route path="/form" element={<Form />} />
             {/* Routes pour le shop */}
             <Route path="/shop" element={<Shop />} />

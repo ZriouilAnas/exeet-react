@@ -11,6 +11,23 @@ function Shop() {
   const [visible, setVisible] = useState(false);
   const [text, setText] = useState("");
 
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("https://api.example.com/products"); // Replace with your API URL
+        const data = await response.json();
+        setProducts(data); // Set the fetched data to the products state
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts(); // Call the fetch function when the component mounts
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
   const handleClick = (text, image) => {
     setBoxImage(image);
     setText(text);
@@ -20,7 +37,7 @@ function Shop() {
     }, 3000);
   };
 
-  const products = [
+  /* const products = [
     {
       id: 1,
       name: "GOD OF WAR KRATOS - GAMING T-SHIRT",
@@ -49,6 +66,7 @@ function Shop() {
       color: "red",
     },
   ];
+*/
 
   const { addToCart } = useContext(ShopContext);
   return (
