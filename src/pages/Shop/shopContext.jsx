@@ -43,6 +43,13 @@ export const ShopProvider = ({ children }) => {
       }
     });
   };
+
+  const removeFromCart = (productId) => {
+    setCartItems((prevCart) => {
+      return prevCart.filter((item) => item.id !== productId);
+    });
+  };
+
   // Function to count total items in cart
   const getCartItemCount = () => {
     return cartItems.length;
@@ -50,7 +57,13 @@ export const ShopProvider = ({ children }) => {
 
   return (
     <ShopContext.Provider
-      value={{ cartItems, addToCart, getCartItemCount, updateQuantity }}
+      value={{
+        cartItems,
+        addToCart,
+        getCartItemCount,
+        updateQuantity,
+        removeFromCart,
+      }}
     >
       {children}
     </ShopContext.Provider>

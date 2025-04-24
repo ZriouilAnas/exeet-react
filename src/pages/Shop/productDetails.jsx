@@ -109,7 +109,7 @@ function ProductDetails() {
                 }}
               >
                 <div className="hover"></div>
-                <span>Join Us</span>
+                <span>Acheter</span>
               </a>
 
               <div className="description-details">

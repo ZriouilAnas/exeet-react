@@ -4,8 +4,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "./shopContext";
 
 function Cart() {
-  const { cartItems, updateQuantity } = useContext(ShopContext);
+  const { cartItems, updateQuantity, removeFromCart } = useContext(ShopContext);
 
+  console.log(cartItems);
   const updateQuant = (id, newQuantity) => {
     // Update the quantity using the context provider
     if (newQuantity >= 0) {
@@ -67,7 +68,19 @@ function Cart() {
                         +
                       </button>
                     </div>
+                    <td>
+                      <a
+                        className="btn-remove"
+                        onClick={() => {
+                          removeFromCart(product.id);
+                        }}
+                      >
+                        <div className="hover"></div>
+                        <span>Delete</span>
+                      </a>
+                    </td>
                   </td>
+
                   <td>€{(product.quantity || 0) * product.prix}</td>
                 </tr>
               ))}
