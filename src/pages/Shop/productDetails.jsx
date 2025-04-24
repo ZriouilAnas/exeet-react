@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ShopContext } from "./shopContext";
 import ShopNav from "./shopNav";
+import Related from "./related";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -12,6 +14,7 @@ function ProductDetails() {
   const { id } = useParams();
   const [produit, setProduit] = useState(null);
 
+  const navigate = useNavigate();
   const handleQuantityChange = (delta) => {
     setQuantity(Math.max(1, quantity + delta));
   };
@@ -32,6 +35,10 @@ function ProductDetails() {
   };
 
   const sizes = ["S", "M", "L", "XL", "2XL"];
+  const handleCart = () => {
+    addToCart(product);
+    navigate("/Cart");
+  };
 
   /*  useEffect(() => {
     axios
@@ -105,7 +112,7 @@ function ProductDetails() {
               <a
                 className="btn-details"
                 onClick={() => {
-                  navigate("form");
+                  handleCart();
                 }}
               >
                 <div className="hover"></div>
@@ -130,6 +137,7 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+      <Related></Related>
     </>
   );
 }

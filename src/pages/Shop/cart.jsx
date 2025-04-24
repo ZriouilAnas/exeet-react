@@ -2,6 +2,7 @@ import ShopNav from "./shopNav";
 import "./cart.css";
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "./shopContext";
+import Related from "./related";
 
 function Cart() {
   const { cartItems, updateQuantity, removeFromCart } = useContext(ShopContext);
@@ -9,7 +10,7 @@ function Cart() {
   console.log(cartItems);
   const updateQuant = (id, newQuantity) => {
     // Update the quantity using the context provider
-    if (newQuantity >= 0) {
+    if (newQuantity >= 1) {
       updateQuantity(id, newQuantity);
     }
   };
@@ -108,6 +109,7 @@ function Cart() {
           </div>
         </div>
       </div>
+      <Related></Related>
     </>
   );
 }
