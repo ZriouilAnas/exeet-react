@@ -313,3 +313,7 @@ footer {
   padding: 0;
   margin: 0;
 }
+
+.buy-placeholder:hover {
+  border: #000000 solid 1px;
+}

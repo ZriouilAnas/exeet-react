@@ -10,6 +10,8 @@ import ShopDemo from "./pages/Shop/shopdemo";
 import { ShopProvider } from "./pages/Shop/shopContext";
 import LoginPage from "./pages/backoffice/login";
 import ProductList from "./pages/backoffice/products";
+import RegisterPage from "./pages/backoffice/Register";
+import ProductDetails from "./pages/Shop/productDetails";
 
 // Importation des composants nécessaires
 
@@ -23,6 +25,7 @@ const App = () => {
           <Routes>
             {/* Routes pour la login */}
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={RegisterPage} />
             {/* Routes pour backoffice */}
             <Route path="/products" element={<ProductList />} />
 
@@ -30,6 +33,7 @@ const App = () => {
             <Route path="/form" element={<Form />} />
             {/* Routes pour le shop */}
             <Route path="/shop" element={<Shop />} />
+            <Route path="/productDetails" element={<ProductDetails />} />
             <Route path="/shopdemp" element={<ShopDemo />} />
             <Route path="/cart" element={<Cart />} />
             {/* Route par défaut (peut rediriger vers la page d'accueil) */}
