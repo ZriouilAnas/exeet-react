@@ -39,13 +39,15 @@ body {
 
 /* Product image styles */
 .product-details-image {
+  display: flex;
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: 8px;
+  flex-direction: column;
 }
 
 .product-details-image img {
-  width: 100%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
 }

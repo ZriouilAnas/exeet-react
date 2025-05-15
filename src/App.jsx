@@ -6,12 +6,16 @@ import Form from "./pages/form";
 import Home from "./pages/home";
 import Shop from "./pages/Shop/shop";
 import Cart from "./pages/Shop/cart";
-import ShopDemo from "./pages/Shop/shopdemo";
+
 import { ShopProvider } from "./pages/Shop/shopContext";
-import LoginPage from "./pages/backoffice/login";
-import ProductList from "./pages/backoffice/products";
-import RegisterPage from "./pages/backoffice/Register";
+
 import ProductDetails from "./pages/Shop/productDetails";
+import AdminLogin from "./pages/backoffice/admin/login/AdminLogin";
+import CreateProduct from "./pages/backoffice/product/productCreate/productCreate";
+import ProductList from "./pages/backoffice/product/productList/productList";
+import EditProduct from "./pages/backoffice/product/productEdit/productEdit";
+import { AuthProvider } from "./pages/backoffice/admin/login/authContext";
+import PrivateRoute from "./pages/backoffice/admin/login/PrivateRoute";
 
 // Importation des composants nécessaires
 
@@ -20,27 +24,54 @@ import ProductDetails from "./pages/Shop/productDetails";
 const App = () => {
   return (
     <ShopProvider>
-      <Router>
-        <div className="App">
-          <Routes>
-            {/* Routes pour la login */}
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={RegisterPage} />
-            {/* Routes pour backoffice */}
-            <Route path="/products" element={<ProductList />} />
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <Routes>
+              {/* Routes pour la login */}
+              <Route path="/admin/login" element={<AdminLogin />} />
 
-            {/* Routes pour la form */}
-            <Route path="/form" element={<Form />} />
-            {/* Routes pour le shop */}
-            <Route path="/shop" element={<Shop />} />
-            <Route path="/productDetails" element={<ProductDetails />} />
-            <Route path="/shopdemp" element={<ShopDemo />} />
-            <Route path="/cart" element={<Cart />} />
-            {/* Route par défaut (peut rediriger vers la page d'accueil) */}
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </div>
-      </Router>
+              {/* Routes pour backoffice */}
+
+              <Route
+                path="/admin/ProductCreate"
+                element={
+                  <PrivateRoute>
+                    <CreateProduct />
+                  </PrivateRoute>
+                }
+              />
+
+              <Route
+                path="/admin/ProductList"
+                element={
+                  <PrivateRoute>
+                    <ProductList />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/admin/ProductEdit"
+                element={
+                  <PrivateRoute>
+                    <EditProduct />
+                  </PrivateRoute>
+                }
+              />
+
+              {/* Routes pour la form */}
+              <Route path="/form" element={<Form />} />
+              {/* Routes pour le shop */}
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/productDetails" element={<ProductDetails />} />
+
+              <Route path="/cart" element={<Cart />} />
+              {/* Route par défaut (peut rediriger vers la page d'accueil) */}
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </div>
+        </Router>
+      </AuthProvider>
     </ShopProvider>
   );
 };

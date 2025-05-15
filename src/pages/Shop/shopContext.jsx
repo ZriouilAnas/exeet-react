@@ -30,7 +30,7 @@ export const ShopProvider = ({ children }) => {
     );
   };
 
-  const addToCart = (product) => {
+  const addToCart = (product, qnt) => {
     setCartItems((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
 
@@ -39,7 +39,7 @@ export const ShopProvider = ({ children }) => {
         return prevCart;
       } else {
         // If it's a new product, add it with quantity = 1
-        return [...prevCart, { ...product, quantity: 1 }];
+        return [...prevCart, { ...product, quantity: qnt }];
       }
     });
   };

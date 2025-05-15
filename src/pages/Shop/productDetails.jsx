@@ -36,7 +36,7 @@ function ProductDetails() {
 
   const sizes = ["S", "M", "L", "XL", "2XL"];
   const handleCart = () => {
-    addToCart(product);
+    addToCart(product, quantity);
     navigate("/Cart");
   };
 
@@ -57,6 +57,7 @@ function ProductDetails() {
           <div className="product-details-grid">
             <div className="product-details-image">
               <img src={product.image} alt="Falcon Heavy T-Shirt" />
+              <img src={product.hoverImage} alt="Falcon Heavy T-Shirt" />
             </div>
 
             <div className="product-details-info">
