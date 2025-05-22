@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import "./shop.css";
-import ShopNav from "./shopNav";
-import { ShopContext } from "./shopContext";
+import ShopNav from "../shopNav/shopNav";
+import { ShopContext } from "../shopContext";
 import { Link, useNavigate } from "react-router-dom";
 
 function Shop() {
@@ -31,38 +31,38 @@ function Shop() {
   const handleClick = (text, image) => {
     setBoxImage(image);
     setText(text);
-    setVisible(true); // Show div
+    setVisible(true);
     setTimeout(() => {
-      setVisible(false); // Hide div after 3 seconds
+      setVisible(false);
     }, 3000);
   };
 
   const products = [
     {
       id: 1,
-      name: "GOD OF WAR KRATOS - GAMING T-SHIRT",
-      description: "sdfdsfsdfsdfsdf",
+      name: "Mug",
+      description: "un MUG aui mug",
       prix: 15,
-      image: "../src/assets/img/GOD_OF_WAR.jpg",
-      hoverImage: "../src/assets/img/LOGO.jpeg",
-      color: "blue",
+      image: "../src/assets/img/shop/mug1.png",
+      hoverImage: "../src/assets/img/shop/mug2.png",
+      color: "lightgrey",
     },
     {
       id: 2,
-      name: "VIKINGS RAGNAR - SERIES T-SHIRT",
-      description: "sdfdsfsdfsdfsdf",
+      name: "t shirt number 1",
+      description: "this is a tshirt space wise",
       prix: 15,
-      image: "../src/assets/img/Ragnar.jpeg",
-      hoverImage: "../src/assets/img/LOGO.jpeg",
+      image: "../src/assets/img/shop/T1F.png",
+      hoverImage: "../src/assets/img/shop/T1B.png",
       color: "black",
     },
     {
       id: 3,
-      name: "VIKINGS Floki - SERIES T-SHIRT",
-      description: "sdfdsfsdfsdfsdf",
+      name: "SPACE TRAVEL - SERIES T-SHIRT",
+      description: "I LOVE SPACE <3 ",
       prix: 15,
-      image: "../src/assets/img/Floki.jpg",
-      hoverImage: "../src/assets/img/LOGO.jpeg",
+      image: "../src/assets/img/shop/T2F.png",
+      hoverImage: "../src/assets/img/shop/T2B.png",
       color: "red",
     },
   ];
@@ -71,7 +71,7 @@ function Shop() {
   return (
     <>
       <ShopNav></ShopNav>
-      <main>
+      <div className="shop-container">
         <div id="bg-shop">
           <div className={`fade-box ${visible ? "show" : "hide"}`}>
             <img src={boxImage} alt="" /> {text}
@@ -82,7 +82,6 @@ function Shop() {
                 <div
                   className="product-image"
                   onClick={() => {
-                    alert("XD");
                     navigate("/productdetails");
                   }}
                 >
@@ -214,7 +213,7 @@ function Shop() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
 
       <footer>
         <p>EXXEET © 2024</p>

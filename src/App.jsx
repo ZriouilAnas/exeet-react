@@ -2,20 +2,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 //import "./App.css";
-import Form from "./pages/form";
+import Form from "./pages/form/form";
 import Home from "./pages/home";
-import Shop from "./pages/Shop/shop";
-import Cart from "./pages/Shop/cart";
+import Shop from "./pages/Shop/catalogue/shop";
+import Cart from "./pages/Shop/cart/cart";
 
 import { ShopProvider } from "./pages/Shop/shopContext";
 
-import ProductDetails from "./pages/Shop/productDetails";
+import ProductDetails from "./pages/Shop/productDetails/productDetails";
 import AdminLogin from "./pages/backoffice/admin/login/AdminLogin";
 import CreateProduct from "./pages/backoffice/product/productCreate/productCreate";
 import ProductList from "./pages/backoffice/product/productList/productList";
 import EditProduct from "./pages/backoffice/product/productEdit/productEdit";
 import { AuthProvider } from "./pages/backoffice/admin/login/authContext";
 import PrivateRoute from "./pages/backoffice/admin/login/PrivateRoute";
+import DashBoard from "./pages/backoffice/product/dashBoard/dashBoard";
 
 // Importation des composants nécessaires
 
@@ -32,6 +33,15 @@ const App = () => {
               <Route path="/admin/login" element={<AdminLogin />} />
 
               {/* Routes pour backoffice */}
+
+              <Route
+                path="/admin/dashboard"
+                element={
+                  <PrivateRoute>
+                    <DashBoard />
+                  </PrivateRoute>
+                }
+              />
 
               <Route
                 path="/admin/ProductCreate"

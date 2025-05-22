@@ -3,9 +3,9 @@ import { Minus, Plus, ShoppingCart } from "lucide-react";
 import "./ProductDetails.css";
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
-import { ShopContext } from "./shopContext";
-import ShopNav from "./shopNav";
-import Related from "./related";
+import { ShopContext } from "../shopContext";
+import ShopNav from "../shopNav/shopNav";
+import Related from "../related/related";
 import { useNavigate } from "react-router-dom";
 
 function ProductDetails() {

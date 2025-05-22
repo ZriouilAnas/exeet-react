@@ -1,8 +1,8 @@
-import ShopNav from "./shopNav";
+import ShopNav from "../shopNav/shopNav";
 import "./cart.css";
 import React, { useContext, useEffect, useState } from "react";
-import { ShopContext } from "./shopContext";
-import Related from "./related";
+import { ShopContext } from "../shopContext";
+import Related from "../related/related";
 
 function Cart() {
   const { cartItems, updateQuantity, removeFromCart } = useContext(ShopContext);

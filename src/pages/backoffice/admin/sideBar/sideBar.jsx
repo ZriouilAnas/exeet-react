@@ -18,7 +18,7 @@ const SideNavBar = () => {
         <h2>Admin</h2>
       </div>
       <nav className="sidebar-nav">
-        <NavLink to="/admin/productlist" className="sidebar-link">
+        <NavLink to="/admin/dashboard" className="sidebar-link">
           <Home size={20} /> <span>Dashboard</span>
         </NavLink>
         <NavLink to="/admin/productlist" className="sidebar-link">
