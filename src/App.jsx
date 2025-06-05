@@ -73,7 +73,7 @@ const App = () => {
               <Route path="/form" element={<Form />} />
               {/* Routes pour le shop */}
               <Route path="/shop" element={<Shop />} />
-              <Route path="/productDetails" element={<ProductDetails />} />
+              <Route path="/productDetails/:id" element={<ProductDetails />} />
 
               <Route path="/cart" element={<Cart />} />
               {/* Route par défaut (peut rediriger vers la page d'accueil) */}
