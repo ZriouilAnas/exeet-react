@@ -8,13 +8,11 @@ function NavBar() {
           <h1>EXEET</h1>
         </div>
 
-        <ul>
-          <li>
-            <NavLink style={{ fontSize: "1.8rem" }} to="/shop">
-              Shop
-            </NavLink>
-          </li>
-        </ul>
+        <div className="home-navlink">
+          <NavLink style={{ fontSize: "1.8rem" }} to="/shop">
+            Shop
+          </NavLink>
+        </div>
       </div>
     </>
   );

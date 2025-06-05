@@ -8,7 +8,6 @@ function Home() {
   return (
     <>
       <NavBar></NavBar>
-      {/* Section A */}
 
       <div className="home-container">
         <div className="section-inner">

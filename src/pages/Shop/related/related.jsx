@@ -1,6 +1,8 @@
 import React from "react";
 import "./related.css";
 
+//here should be a fetch and select random 3
+
 const product = {
   image: "./src/assets/img/Floki.jpg",
   hoverImage: "./src/assets/img/4.png",

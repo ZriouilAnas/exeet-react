@@ -28,6 +28,7 @@ ul {
 .home-container {
   height: 85vh;
   width: 100vw;
+  overflow: hidden;
   background-image: url("/img/Home-Earth.avif");
   background-repeat: no-repeat;
   background-size: cover;

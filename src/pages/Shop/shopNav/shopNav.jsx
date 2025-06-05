@@ -73,7 +73,7 @@ function ShopNav() {
         </div>
         <div className="shopNav-right">
           <NavLink to="/cart" className="shopNav-link cart">
-            🛒 CART ({getCartItemCount()}) {/* Show cart count */}
+            🛒 CART ({getCartItemCount()})
           </NavLink>
         </div>
       </div>
