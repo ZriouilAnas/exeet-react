@@ -17,7 +17,8 @@ function Cart() {
 
   // Calcul du prix total
   const totalPrix = cartItems.reduce(
-    (total, product) => total + (product.quantity || 0) * product.prix,
+    (total, product) =>
+      total + (product.quantity || 0) * product.properties.price,
     0
   );
 
@@ -42,12 +43,21 @@ function Cart() {
                   <td>
                     <div className="Products">
                       <div className="ProductImage">
-                        <img src={product.image} alt={product.name} />
+                        <img
+                          src={product.properties.hs_images}
+                          alt={product.properties.name}
+                        />
                       </div>
                       <div className="productflex">
-                        <div className="ProductTitle">{product.name}</div>
-                        <div className="ProductDesc">{product.description}</div>
-                        <div className="ProductPrix">{product.prix}€</div>
+                        <div className="ProductTitle">
+                          {product.properties.name}
+                        </div>
+                        <div className="ProductDesc">
+                          {product.properties.description}
+                        </div>
+                        <div className="ProductPrix">
+                          {product.properties.price}€
+                        </div>
                       </div>
                     </div>
                   </td>
@@ -82,7 +92,7 @@ function Cart() {
                     </td>
                   </td>
 
-                  <td>€{(product.quantity || 0) * product.prix}</td>
+                  <td>€{(product.quantity || 0) * product.properties.price}</td>
                 </tr>
               ))}
             </tbody>

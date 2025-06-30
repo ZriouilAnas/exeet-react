@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./form.css";
+import { NavLink } from "react-router-dom";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -11,23 +12,81 @@ export default function Form() {
     adress2: "",
     zipCode: "",
     etat: "",
-
     countryResidence: "",
     countryPassport: "",
     isOver18: "",
     financialQualification: "",
-
     destination: "",
     year: "",
     pleaseShare: "",
   });
 
+  const [status, setStatus] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Envoi en cours...");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/create-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("Contact créé avec succès !");
+        setFormData({
+          prenom: "",
+          nom: "",
+          email: "",
+          tel: "",
+          adress1: "",
+          adress2: "",
+          zipCode: "",
+          etat: "",
+          countryResidence: "",
+          countryPassport: "",
+          isOver18: "",
+          financialQualification: "",
+          destination: "",
+          year: "",
+          pleaseShare: "",
+        });
+      } else {
+        const errorData = await response.json();
+        setStatus("Erreur : " + (errorData.error || "Une erreur est survenue"));
+      }
+    } catch (error) {
+      setStatus("Erreur : " + error.message);
+    }
+  };
+
   return (
     <div id="form-background">
       <div className="container">
-        <header className="header">
+        <header className="form-header-container">
           <div className="logo">
-            <a href="/">EXEET</a>
+            <NavLink style={{ fontSize: "1.8rem" }} to="/">
+              <img
+                style={{ width: "10vw" }}
+                src="src\assets\img\Logo-White-EXEET-01.png"
+                alt="Home EXEET"
+              />
+            </NavLink>
+          </div>
+          <div className="home-navlink">
+            <NavLink style={{ fontSize: "1.8rem" }} to="/shop">
+              Shop
+            </NavLink>
           </div>
         </header>
 
@@ -36,17 +95,16 @@ export default function Form() {
 
           <hr className="full-width" />
           <br />
-          <form className="form">
+          <form className="form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label>
                 Prenom <span className="required">*</span>
               </label>
               <input
                 type="text"
+                name="prenom"
                 value={formData.prenom}
-                onChange={(e) =>
-                  setFormData({ ...formData, prenom: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -56,10 +114,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="nom"
                 value={formData.nom}
-                onChange={(e) =>
-                  setFormData({ ...formData, nom: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -69,10 +126,9 @@ export default function Form() {
               </label>
               <input
                 type="email"
+                name="email"
                 value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -82,10 +138,9 @@ export default function Form() {
               </label>
               <input
                 type="tel"
+                name="tel"
                 value={formData.tel}
-                onChange={(e) =>
-                  setFormData({ ...formData, tel: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -95,10 +150,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="adress1"
                 value={formData.adress1}
-                onChange={(e) =>
-                  setFormData({ ...formData, adress1: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -108,10 +162,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="adress2"
                 value={formData.adress2}
-                onChange={(e) =>
-                  setFormData({ ...formData, adress2: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -121,10 +174,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="zipCode"
                 value={formData.zipCode}
-                onChange={(e) =>
-                  setFormData({ ...formData, zipCode: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -134,10 +186,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="etat"
                 value={formData.etat}
-                onChange={(e) =>
-                  setFormData({ ...formData, etat: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -146,10 +197,9 @@ export default function Form() {
                 Pays de résidence principale <span className="required">*</span>
               </label>
               <select
+                name="countryResidence"
                 value={formData.countryResidence}
-                onChange={(e) =>
-                  setFormData({ ...formData, countryResidence: e.target.value })
-                }
+                onChange={handleChange}
               >
                 <option value="">Select a country</option>
                 <option value="US">United States</option>
@@ -162,10 +212,9 @@ export default function Form() {
                 Pays de passeport <span className="required">*</span>
               </label>
               <select
+                name="countryPassport"
                 value={formData.countryPassport}
-                onChange={(e) =>
-                  setFormData({ ...formData, countryPassport: e.target.value })
-                }
+                onChange={handleChange}
               >
                 <option value="">Select a country</option>
                 <option value="US">United States</option>
@@ -183,24 +232,20 @@ export default function Form() {
                 <label className="radio-container">
                   <input
                     type="radio"
-                    name="age"
+                    name="isOver18"
                     value="yes"
                     checked={formData.isOver18 === "yes"}
-                    onChange={(e) =>
-                      setFormData({ ...formData, isOver18: e.target.value })
-                    }
+                    onChange={handleChange}
                   />{" "}
                   Yes
                 </label>
                 <label className="radio-container">
                   <input
                     type="radio"
-                    name="age"
+                    name="isOver18"
                     value="no"
                     checked={formData.isOver18 === "no"}
-                    onChange={(e) =>
-                      setFormData({ ...formData, isOver18: e.target.value })
-                    }
+                    onChange={handleChange}
                   />{" "}
                   No
                 </label>
@@ -216,30 +261,20 @@ export default function Form() {
                 <label className="radio-container">
                   <input
                     type="radio"
-                    name="financial"
+                    name="financialQualification"
                     value="yes"
                     checked={formData.financialQualification === "yes"}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        financialQualification: e.target.value,
-                      })
-                    }
+                    onChange={handleChange}
                   />{" "}
                   Yes
                 </label>
                 <label className="radio-container">
                   <input
                     type="radio"
-                    name="financial"
+                    name="financialQualification"
                     value="no"
                     checked={formData.financialQualification === "no"}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        financialQualification: e.target.value,
-                      })
-                    }
+                    onChange={handleChange}
                   />{" "}
                   No
                 </label>
@@ -254,10 +289,9 @@ export default function Form() {
                 Destination <span className="required">*</span>
               </label>
               <select
+                name="destination"
                 value={formData.destination}
-                onChange={(e) =>
-                  setFormData({ ...formData, destination: e.target.value })
-                }
+                onChange={handleChange}
               >
                 <option value="">Select a destination</option>
                 <option value="moon">To the Moon</option>
@@ -270,10 +304,9 @@ export default function Form() {
               </label>
               <input
                 type="text"
+                name="year"
                 value={formData.year}
-                onChange={(e) =>
-                  setFormData({ ...formData, year: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
             <div className="form-group full-width">
@@ -282,11 +315,9 @@ export default function Form() {
                 votre mission. <span className="required">*</span>
               </label>
               <textarea
-                type="textarea"
+                name="pleaseShare"
                 value={formData.pleaseShare}
-                onChange={(e) =>
-                  setFormData({ ...formData, pleaseShare: e.target.value })
-                }
+                onChange={handleChange}
               />
             </div>
 
@@ -306,8 +337,10 @@ export default function Form() {
               </p>
               <br />
               <div className="checkbox-container">
-                <label className="checkbox-container">I CONFIRM </label>
-                <input type="checkbox" required />
+                <label className="checkbox-container">
+                  I CONFIRM{" "}
+                  <input type="checkbox" required name="acknowledge1" />
+                </label>
               </div>
               <br />
             </div>
@@ -324,23 +357,22 @@ export default function Form() {
               </p>
               <br />
               <div className="checkbox-container">
-                <label className="checkbox-container">I CONFIRM </label>
-                <input type="checkbox" required />
+                <label className="checkbox-container">
+                  I CONFIRM{" "}
+                  <input type="checkbox" required name="acknowledge2" />
+                </label>
               </div>
               <br />
             </div>
+
             <div className="submit">
-              <a
-                className="btn"
-                onClick={() => {
-                  submit();
-                }}
-              >
+              <button type="submit" className="btn">
                 <div className="hover"></div>
                 <span>Submit</span>
-              </a>
+              </button>
             </div>
           </form>
+          {status && <p>{status}</p>}
         </main>
       </div>
       <br />

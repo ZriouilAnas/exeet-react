@@ -5,7 +5,7 @@ function NavBar() {
     <>
       <div className="nav-container">
         <div className="logo">
-          <h1>EXEET</h1>
+          <img src="src\assets\img\Logo-White-EXEET-01.png" alt="" />
         </div>
 
         <div className="home-navlink">

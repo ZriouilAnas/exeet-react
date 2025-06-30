@@ -9,9 +9,9 @@ const ProductList = () => {
   const itemsPerPage = 5;
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products") // Replace with your real API
+    fetch("http://127.0.0.1:8000/api/produits")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => setProducts(data.data))
       .catch((err) => console.error("API Error:", err));
   }, []);
 

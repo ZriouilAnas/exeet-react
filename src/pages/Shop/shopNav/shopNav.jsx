@@ -9,8 +9,12 @@ function ShopNav() {
     <>
       <div className="shopNav-container">
         <div className="shopNav-left">
-          <a href="/" className="logo">
-            EXEET
+          <a href="/">
+            <img
+              style={{ width: "7vw", padding: "0", height: "auto" }}
+              src="src\assets\img\EXEET-shop-05.png"
+              alt=""
+            />
           </a>
         </div>
         <div className="shopNav-center">

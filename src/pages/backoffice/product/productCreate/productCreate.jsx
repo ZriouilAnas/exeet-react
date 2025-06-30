@@ -4,10 +4,12 @@ import SideNavBar from "../../admin/sideBar/sideBar";
 
 const CreateProduct = () => {
   const [form, setForm] = useState({
-    title: "",
-    price: "",
+    nom: "",
+    prix: "",
     description: "",
-    category: "",
+    categorie: "",
+    couleur: "",
+    sexe: "",
   });
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
@@ -18,7 +20,7 @@ const CreateProduct = () => {
 
   // 🔁 Fetch categories from API on mount
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories") // Replace with your real endpoint
+    fetch("http://127.0.0.1:8000/api/produits") // Replace with your real endpoint
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => setError("Failed to load categories"));
@@ -41,10 +43,11 @@ const CreateProduct = () => {
 
     try {
       const formData = new FormData();
-      formData.append("title", form.title);
-      formData.append("price", form.price);
+      formData.append("nom", form.nom);
+      formData.append("prix", form.prix);
       formData.append("description", form.description);
-      formData.append("category", form.category);
+      formData.append("couleur", form.couleur);
+      formData.append("categorie", form.categorie);
       if (imageFile) formData.append("image", imageFile);
 
       const response = await fetch("https://your-api.com/products", {
@@ -55,7 +58,7 @@ const CreateProduct = () => {
       if (!response.ok) throw new Error("Failed to create product");
 
       setSuccess(true);
-      setForm({ title: "", price: "", description: "", category: "" });
+      setForm({ nom: "", prix: "", description: "", categorie: "" });
       setImageFile(null);
       setImagePreview(null);
     } catch (err) {
@@ -74,29 +77,29 @@ const CreateProduct = () => {
       >
         <input
           type="text"
-          name="title"
-          placeholder="Title"
-          value={form.title}
+          name="nom"
+          placeholder="nom"
+          value={form.nom}
           onChange={handleChange}
           required
         />
         <input
           type="number"
-          name="price"
-          placeholder="Price"
-          value={form.price}
+          name="prix"
+          placeholder="prix"
+          value={form.prix}
           onChange={handleChange}
           required
         />
 
-        {/* Dynamic category select */}
+        {/* Dynamic categorie select */}
         <select
-          name="category"
-          value={form.category}
+          name="categorie"
+          value={form.categorie}
           onChange={handleChange}
           required
         >
-          <option value="">Select category</option>
+          <option value="">Select categorie</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>
               {cat.charAt(0).toUpperCase() + cat.slice(1)}

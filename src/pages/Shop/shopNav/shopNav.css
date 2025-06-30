@@ -4,6 +4,10 @@
 
 /* nav style */
 
+.shopNav-left {
+  max-height: 70px;
+}
+
 .shopNav-container {
   display: flex;
   justify-content: space-between;
@@ -15,6 +19,8 @@
   z-index: 1000;
   width: 100vw;
   max-width: 375;
+  max-height: 100px;
+  height: 9vh;
 }
 
 .shopNav-menu {

@@ -7,6 +7,7 @@ import { ShopContext } from "../shopContext";
 import ShopNav from "../shopNav/shopNav";
 import Related from "../related/related";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
@@ -25,6 +26,7 @@ function ProductDetails() {
 
   const { addToCart } = useContext(ShopContext);
 
+  /* 
   const product = {
     name: "GOD OF WAR KRATOS - GAMING T-SHIRT",
     description: "sdfdsfsdfsdfsdf",
@@ -33,22 +35,39 @@ function ProductDetails() {
     hoverImage: "../src/assets/img/LOGO.jpeg",
     color: "blue",
   };
-
+*/
   const sizes = ["S", "M", "L", "XL", "2XL"];
   const handleCart = () => {
-    addToCart(product, quantity);
+    addToCart(produit, quantity);
     navigate("/Cart");
   };
 
-  /*  useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/produit/getById/${id}`)
-      .then((res) => setProduit(res.data))
-      .catch((err) => console.error(err));
+  useEffect(() => {
+    // Fetch data from the API
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/product/getById/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ); // Replace with your API URL
+        const data = await response.json();
+        setProduit(data);
+        console.log(data); // Set the fetched data to the products state
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts(); // Call the fetch function when the component mounts
   }, [id]);
 
-  if (!request) return <p>Loading...</p>;
-*/
+  if (!produit) return <p>Loading product...</p>;
+
   return (
     <>
       <ShopNav></ShopNav>
@@ -56,16 +75,22 @@ function ProductDetails() {
         <div className="content">
           <div className="product-details-grid">
             <div className="product-details-image">
-              <img src={product.image} alt="Falcon Heavy T-Shirt" />
-              <img src={product.hoverImage} alt="Falcon Heavy T-Shirt" />
+              <img
+                src={produit.properties.hs_images}
+                alt="Falcon Heavy T-Shirt"
+              />
+              <img
+                src={produit.properties.hs_images}
+                alt="Falcon Heavy T-Shirt"
+              />
             </div>
 
             <div className="product-details-info">
               <h1 className="product-details-title">
-                MEN'S FALCON HEAVY T-SHIRT
+                {produit.properties.name}
               </h1>
               <p className="product-details-price">
-                ${product.prix.toFixed(2)}
+                ${produit.properties.price}
               </p>
 
               <div className="size-details-section">
@@ -87,7 +112,7 @@ function ProductDetails() {
               <div className="color-details-section">
                 <div
                   className="color-placeholder"
-                  style={{ backgroundColor: product.color }}
+                  style={{ backgroundColor: produit.color }}
                 ></div>
               </div>
 

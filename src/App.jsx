@@ -17,6 +17,20 @@ import EditProduct from "./pages/backoffice/product/productEdit/productEdit";
 import { AuthProvider } from "./pages/backoffice/admin/login/authContext";
 import PrivateRoute from "./pages/backoffice/admin/login/PrivateRoute";
 import DashBoard from "./pages/backoffice/product/dashBoard/dashBoard";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+function HubspotTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (window._hsq) {
+      window._hsq.push(["trackPageView"]);
+    }
+  }, [location.pathname]);
+
+  return null;
+}
 
 // Importation des composants nécessaires
 
@@ -27,6 +41,7 @@ const App = () => {
     <ShopProvider>
       <AuthProvider>
         <Router>
+          <HubspotTracker />
           <div className="App">
             <Routes>
               {/* Routes pour la login */}

@@ -26,13 +26,13 @@ ul {
 }
 
 .home-container {
-  height: 85vh;
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-image: url("/img/Home-Earth.avif");
+  background-image: url("../assets/img/WALLPAPER HOMEPAGE SITE CROP 4k.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   text-transform: uppercase;
   position: relative;
 }
@@ -204,7 +204,8 @@ ul {
   }
   .section-button {
     bottom: 75px;
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .section-inner h2 {
@@ -224,7 +225,7 @@ ul {
 
   .logo {
     width: 150px;
-    margin: auto;
+    margin: 0;
   }
 
   .section-inner-center h3 {
@@ -238,5 +239,8 @@ ul {
 
   .stats div {
     margin-bottom: 20px;
+  }
+  .home-container {
+    background-image: url("../assets/img/home-bg.jpg");
   }
 }

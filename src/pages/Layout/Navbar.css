@@ -7,20 +7,27 @@
   align-items: center;
   text-transform: uppercase;
   height: 15vh;
-  padding: 2rem;
+
   background-color: #00000000;
+  position: fixed;
+  z-index: 1000;
 }
 
 .logo {
-  width: 30vw;
+  width: 15vw;
   height: auto;
-  font-size: 4rem;
-  padding: 0;
+  padding: 1rem;
   color: black;
+  min-width: 200px;
+  margin-top: 1%;
 }
 
 .logo img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.home-navlink {
+  padding: 1rem;
 }

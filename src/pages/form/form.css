@@ -15,6 +15,21 @@ body {
   position: relative;
 }
 
+.form-header-container {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  height: 12vh;
+  margin: 0;
+
+  background-color: #000000;
+  position: fixed;
+}
+
 .container {
   max-width: 800px;
   margin: 1vh 2vw;

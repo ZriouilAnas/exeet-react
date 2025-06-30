@@ -7,7 +7,7 @@ function Related() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/product/public/showall")
+    fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
       .then((data) => {
         const randomThree = data.sort(() => 0.5 - Math.random()).slice(0, 4);
@@ -28,13 +28,10 @@ function Related() {
             }}
           >
             <div className="product-image">
-              <img
-                src={`http://localhost:8000${product.image_url}`}
-                alt={product.name}
-              ></img>
+              <img src={product.properties.hs_images} alt={product.name}></img>
             </div>
-            <div className="product-name">{product.name}</div>
-            <div className="product-price">{product.price}</div>
+            <div className="product-name">{product.properties.name}</div>
+            <div className="product-price">{product.properties.price}</div>
           </div>
         ))}
       </div>

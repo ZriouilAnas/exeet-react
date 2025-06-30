@@ -19,10 +19,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post("https://dummyjson.com/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:8000/api/login_check",
+        {
+          username,
+          password,
+        }
+      );
 
       const { token, ...userData } = response.data; // capture the full user object
 

@@ -24,6 +24,14 @@
   text-align: center;
 }
 
+.product-item:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+
+  transition: transform 0.3s ease-in-out;
+  border: 0.1rem solid black;
+}
+
 .product-name {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
